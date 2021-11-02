@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Usuarios</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<nav class="navbar navbar-dark bg-dark"
+						style="padding-bottom: 20px; padding-top: 20px;">
+						<div class="container-fluid">
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 10%;"><i class="fas fa-table-tennis"></i></span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 15%;"><i class="fas fa-volleyball-ball"></i></span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 20%;"><i class="fas fa-dumbbell"></i> </span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 25%;"><i class="fas fa-swimmer"></i> </span>
+							
+							<span class="navbar-brand mb-0 h1"
+								style="position: absolute; left: 45%;"> X-TREME  </span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 75%;"><i class="fas fa-biking"></i> </span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 80%;"><i class="fas fa-futbol"></i> </span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 85%;"><i class="fas fa-basketball-ball"></i></span>
+							<span class="navbar-brand mb-0 h3" style="position: absolute; left: 90%;"> <i class="fas fa-running"> </i> </span>
+								
+
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<div class="container-fluid">
+						<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+							aria-controls="navbarNavDropdown" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+							<ul class="navbar-nav navbar-nav me-auto mb-2 mb-lg-0 mb-2 mb-lg-0">
+
+
+								<li class="nav-item">  <a class="nav-link  " href="usuarios"> <i class="fas fa-user-circle"> </i> Usuarios</a>
+							</li>
+
+								<li class="nav-item"><a class="nav-link " href="clientes"><i class="fas fa-address-card"> </i> Clientes</a>
+								</li>
+
+								<li class="nav-item"><a class="nav-link " href="proveedores"><i class="fas fa-archive"> </i> Proveedores</a>
+								</li>
+
+								<li class="nav-item"><a class="nav-link " href="productos"> <i class="fas fa-barcode"></i> Productos</a>
+								</li>
+
+								<li class="nav-item"><a class="nav-link" href="ventas"><i class="fas fa-hand-holding-usd"></i> Ventas</a>
+								</li>
+
+								<li class="nav-item"><a class="nav-link" href="reportes"><i class="fas fa-file-alt"></i> Reportes</a>
+								</li>
+							
+							</ul>
+							
+								
+								 <span class="nav-item"
+							style="position: absolute; left: 78%;"><i class="fas fa-user-circle"> </i></span>
+							<span class="nav-item"
+							style="position: absolute; left: 80%;" th:text=${usuario2.nombreUsuario}>-<i class="fas fa-user-circle"></i></span>
+							<span class="nav-item "
+							style="position: absolute; left: 98%;"><a class="link-dark" href="salir"><i class="fas fa-sign-out-alt"> </i></a> </span>
+						
+							
+						</div>
+
+					</div>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+	<form action="#" th:action="@{/usuarios}" th:object="${usuarios}"
+		method="post">
+		<div class="container mt-4">
+
+			<div class="row">
+
+				<div class="col-sm-2">
+					<label for="cedula">Cedula</label>
+				</div>
+
+				<div class="col-sm-4">
+
+					<input type="number" name="cedula" id="cedula" value =""  class="form-control" 			
+						placeholder="Digita tu cedula" tabindex="4"th:value="${cedulaUsuario}" th:name="cedulaUsuario" th:id="cedulaUsuario">
+
+				</div>
+
+
+				<div class="col-sm-1">
+					<label for="usuario">Usuario:</label>
+				</div>
+			
+				
+			<div class="col-sm-4">
+					<input type="text" name="usuario" id="usuario" value ="" class="form-control"
+						th:value="${usr}" th:name="usr" th:id="usr" placeholder="Digita tu usuario" tabindex="4">
+				</div>
+			</div>
+
+
+			<div class="row mt-3">
+
+				<div class="col-sm-2">
+					<label for="nombre">Nombre Completo:</label>
+				</div>
+				<div class="col-sm-4">
+					<input type="text" name="nombre" id="nombre" value ="" class="form-control"
+						th:value="${nombreUsuario}" th:name="nombreUsuario" th:id="nombreUsuario"  placeholder="Digita tu nombre" tabindex="4">
+				</div>
+
+				<div class="col-sm-1">
+					<label for="contrasenia">Contraseña:</label>
+				</div>
+
+				<div class="col-sm-4">
+				
+				<input type="password" name="contrasenia" id="contrasenia"
+						class="form-control" th:value="${passwordUsuario}" th:name="passwordUsuario" th:id="passwordUsuario"
+						 placeholder="Digita tu contraseña"
+						tabindex="4">
+				
+					
+				</div>
+
+			</div>
+
+			<div class="row mt-3">
+				<div class="col-sm-2">
+					<label for="correo">Correo Electronico:</label>
+				</div>
+
+				<div class="col-sm-4">
+					<input type="text" name="correo" value="" id="correo" class="form-control"
+					th:value="${emailUsuario}" th:name="emailUsuario" th:id="emailUsuario"
+						placeholder="Digita tu correo" tabindex="4" >
+				</div>
+		
+
+			</div>
+		</div>
+
+		<div class="container">
+
+			<div class="row mt-5">
+
+				<div class="col-sm-1">					
+				</div>
+				<div class="col-sm-2">
+
+					<button type="submit" class="btn btn-dark" name="consultar" id="consultar">Consultar</button>				
+				</div>
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-dark" name="crear" id="btn">Crear</button>
+				</div>
+
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-dark" name="actualizar"id="btn">Actualizar</button>
+				</div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#borrar"
+					 name="borrar" id="btn">Borrar</button>
+				</div>		
+				
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-dark" name="Limpiar" id="btn">Limpiar</button>
+				</div>		
+				
+			</div>
+			
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensaje}" th:if="${mensaje}"></div>
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensajeBorrar}" th:if="${mensajeBorrar}"></div>
+<div class="col-sm-12 alert alert-success mt-3 far fa-check-circle" role="alert" th:text="${mensajeBorrar2}" th:if="${mensajeBorrar2}"></div>
+<div class="col-sm-12 alert alert-success mt-3 far fa-check-circle" role="alert" th:text="${mensajeActualizar}" th:if="${mensajeActualizar}"></div>
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensajeActualizar2}" th:if="${mensajeActualizar2}"></div>
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensajeActualizar3}" th:if="${mensajeActualizar3}"></div>
+<div class="col-sm-12 alert alert-success mt-3 far fa-check-circle" role="alert" th:text="${mensajeCrear}" th:if="${mensajeCrear}"></div>
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensajeCrear2}" th:if="${mensajeCrear2}"></div>
+<div class="col-sm-12 alert alert-danger mt-3 fas fa-exclamation-triangle" role="alert" th:text="${mensajeCrear3}" th:if="${mensajeCrear3}"></div>
+		</div>
+		<br>
+	
+		<div class="container">
+		<div class="row">
+			<div class="col-sm">
+
+				<table class="table" th:if="${idcedula2}">
+					<thead>
+					 <tr>
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+       <th scope="col">Password</th>
+      <th scope="col">Usuario</th>
+       <th scope="col">Correo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+ 
+      <td th:text = "${cedulaUsuario}  "  ></td>
+      <td th:text = "${nombreUsuario}"></td>
+       <td th:text = "${passwordUsuario}"></td>
+       <td th:text = "${usr}"></td>
+        <td th:text = "${emailUsuario}"></td>
+         
+    </tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		
+	</div>
+			<!-- Modal -->
+<div class="modal fade" id="borrar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">¿Seguro desea borrar el usuario?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+  
+     
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" name="noBorrar">No</button>
+        <button type="submit" class="btn btn-primary" name="siBorrar">Si</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+	</form>
+	
+
+	
+	
+</body>
+
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+</script>
+
+<script src="https://kit.fontawesome.com/ace25f8021.js" crossorigin="anonymous"></script>
+
+
+
+</html>
